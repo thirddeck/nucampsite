@@ -6,12 +6,6 @@ import { Link } from 'react-router-dom';
 
 function About(props) {
 
-    const partners = props.partners.map(partner => {
-        return (
-            <h5>{partner.name}</h5>
-        );
-    });
-
     return (
         <div className="container">
             <div className="row">
@@ -70,6 +64,53 @@ function About(props) {
                     </Media>
                 </div>
             </div>
+        </div>
+    );
+}
+
+function RenderPartner({partner}) {
+    if (partner) {
+        return (
+            <React.Fragment>
+                <Media object src={baseUrl + partner.image} alt={partner.name} width="150px" />
+                <Media body className="ml-5 mb-4">
+                    <Media heading>{partner.name}</Media>
+                    {partner.description}
+                </Media>
+            </React.Fragment>
+        );
+    }
+}
+
+function PartnerList(props) {
+    
+    const partners = props.partners.partners.map(partner => {
+        return (
+            <Fade in key={partner.id}>
+                <Media tag="li">
+                    <RenderPartner partner={partner} />
+                </Media>
+            </Fade>
+        );
+        
+    });
+    if (props.partners.isLoading) {
+        return <Loading />;
+    }
+    if (props.partners.errMess) {
+        return (
+            <div className="col">
+                <h4>{props.partners.errMess}</h4>
+            </div>
+        );
+    }
+    return (
+        <div className="col mt-4">
+            <Media list>
+                <Stagger in>
+                {partners}
+                </Stagger>
+            </Media>
         </div>
     );
 }
