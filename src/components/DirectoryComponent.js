@@ -27,7 +27,7 @@ function Directory(props) {
             <div className="row">
                 <div className="col">
                     <Breadcrumb>
-                        <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>Directory</BreadcrumbItem>
                         <BreadcrumbItem active>Directory</BreadcrumbItem>
                     </Breadcrumb>
                     <h2>Directory</h2>
@@ -35,7 +35,7 @@ function Directory(props) {
                 </div>
             </div>
             <div className="row">
-                {directory}`
+                {directory}
             </div>
         </div>
     );
