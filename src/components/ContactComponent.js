@@ -11,9 +11,7 @@ function Contact(props) {
                 </Breadcrumb>
                 <h2>Contact Us</h2>
                 <hr />
-            </div>
-        );
-    }
+        </div>,
 
         <div className="row row-content align-items-center">
             <div className="col-sm-4">
@@ -29,7 +27,7 @@ function Contact(props) {
                 <a role="button" className="btn btn-link" href="mailto:fakeemail@fakeemail.co"><i className="fa fa-envelope-o" /> campsites@nucamp.co</a>
             </div>
         </div>
-    );
-}
+    )
+}       
 
 export default Contact;
